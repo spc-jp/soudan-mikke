@@ -7,13 +7,13 @@
 <link rel="icon" type="image/png" href="https://spc-jp.github.io/hearing-mikke/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#223670; --gold:#D0A900; --bg:#F7F5F0; --white:#FFFFFF; --text:#1a1a2e; --muted:#6b7280; --shadow:0 4px 24px rgba(34,54,112,0.10); }
+  :root { --navy:#0F6E7A; --gold:#E39A2B; --bg:#F7F5F0; --white:#FFFFFF; --text:#1a1a2e; --muted:#6b7280; --shadow:0 4px 24px rgba(15,110,122,0.10); }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
 
   header { background:var(--navy); padding:20px 24px; text-align:center; position:relative; overflow:hidden; }
-  header::before { content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%; background:rgba(208,169,0,0.15); }
-  header::after  { content:''; position:absolute; bottom:-30px; left:-30px; width:100px; height:100px; border-radius:50%; background:rgba(208,169,0,0.10); }
+  header::before { content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%; background:rgba(227,154,43,0.15); }
+  header::after  { content:''; position:absolute; bottom:-30px; left:-30px; width:100px; height:100px; border-radius:50%; background:rgba(227,154,43,0.10); }
   .hl { font-family:'Noto Serif JP',serif; color:var(--gold); font-size:11px; letter-spacing:3px; margin-bottom:6px; position:relative; z-index:1; }
   .ht { font-family:'Noto Serif JP',serif; color:#fff; font-size:26px; font-weight:700; letter-spacing:2px; position:relative; z-index:1; }
   .ht span { color:var(--gold); }
@@ -22,7 +22,7 @@
   .prog-wrap { background:#fff; padding:16px 24px 12px; border-bottom:1px solid #e5e7eb; }
   .prog-row { display:flex; justify-content:center; gap:6px; align-items:center; max-width:320px; margin:0 auto; }
   .dot { width:26px; height:26px; border-radius:50%; background:#e5e7eb; color:#9ca3af; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; transition:all .3s; }
-  .dot.on { background:var(--navy); color:#fff; box-shadow:0 0 0 3px rgba(34,54,112,0.2); }
+  .dot.on { background:var(--navy); color:#fff; box-shadow:0 0 0 3px rgba(15,110,122,0.2); }
   .dot.ok { background:var(--gold); color:#fff; }
   .ln { flex:1; max-width:30px; height:2px; background:#e5e7eb; transition:background .3s; }
   .ln.ok { background:var(--gold); }
@@ -42,13 +42,13 @@
   .ib .ic { font-size:24px; display:block; margin-bottom:6px; }
   .ib .il { font-size:13px; font-weight:700; color:var(--navy); }
   .ib .is { font-size:10px; color:var(--muted); margin-top:2px; }
-  .ib:hover { border-color:var(--navy); background:#f0f4ff; transform:translateY(-2px); }
-  .ib.sel { border-color:var(--gold); background:linear-gradient(135deg,#fffbea,#fff8d6); }
+  .ib:hover { border-color:var(--navy); background:#f0f9fa; transform:translateY(-2px); }
+  .ib.sel { border-color:var(--gold); background:linear-gradient(135deg,#fff6e8,#ffefd6); }
 
   .pl { display:flex; flex-direction:column; gap:10px; }
   .pi { display:flex; align-items:center; gap:12px; border:2px solid #e5e7eb; border-radius:12px; padding:14px 16px; cursor:pointer; transition:all .2s; background:#fff; }
-  .pi:hover { border-color:var(--navy); background:#f0f4ff; }
-  .pi.sel { border-color:var(--gold); background:linear-gradient(135deg,#fffbea,#fff8d6); }
+  .pi:hover { border-color:var(--navy); background:#f0f9fa; }
+  .pi.sel { border-color:var(--gold); background:linear-gradient(135deg,#fff6e8,#ffefd6); }
   .cb { width:22px; height:22px; border:2px solid #d1d5db; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; }
   .pi.sel .cb { background:var(--gold); border-color:var(--gold); color:#fff; }
   .pe { font-size:18px; flex-shrink:0; }
@@ -68,7 +68,7 @@
   input.ti::placeholder { color:#9ca3af; }
 
   .bp { width:100%; background:var(--navy); color:#fff; border:none; border-radius:12px; padding:16px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:all .2s; margin-top:20px; letter-spacing:1px; }
-  .bp:hover { background:#1a2a5a; transform:translateY(-1px); box-shadow:0 6px 20px rgba(34,54,112,.3); }
+  .bp:hover { background:#0c5a64; transform:translateY(-1px); box-shadow:0 6px 20px rgba(15,110,122,.3); }
   .bp:disabled { background:#9ca3af; cursor:not-allowed; transform:none; box-shadow:none; }
   .bs { width:100%; background:transparent; color:var(--muted); border:2px solid #e5e7eb; border-radius:12px; padding:14px; font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:all .2s; margin-top:10px; }
   .bs:hover { border-color:var(--navy); color:var(--navy); }
@@ -79,13 +79,13 @@
   .line-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:#06C755; color:#fff; border-radius:12px; padding:16px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; border:none; transition:all .2s; margin-bottom:12px; }
   .line-btn:hover { background:#05a848; transform:translateY(-1px); }
   .mail-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; color:var(--navy); border:2px solid var(--navy); border-radius:12px; padding:15px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; transition:all .2s; }
-  .mail-btn:hover { background:#f0f4ff; transform:translateY(-1px); }
+  .mail-btn:hover { background:#f0f9fa; transform:translateY(-1px); }
 
   /* 送信完了画面 */
   .done-wrap { text-align:center; padding:16px 0 24px; }
   .done-icon { font-size:56px; display:block; margin-bottom:16px; }
   .done-title { font-family:'Noto Serif JP',serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:12px; line-height:1.5; }
-  .done-box { background:linear-gradient(135deg,#fffbea,#fff8d6); border:2px solid var(--gold); border-radius:14px; padding:20px; margin:20px 0; text-align:left; }
+  .done-box { background:linear-gradient(135deg,#fff6e8,#ffefd6); border:2px solid var(--gold); border-radius:14px; padding:20px; margin:20px 0; text-align:left; }
   .done-box-title { font-family:'Noto Serif JP',serif; font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px; }
   .done-box-text { font-size:13px; line-height:1.8; color:var(--text); }
   .done-sub { font-size:12px; color:var(--muted); line-height:1.8; margin-bottom:20px; }
@@ -99,9 +99,9 @@
   .modal-title { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:700; color:var(--navy); text-align:center; margin-bottom:20px; }
   .modal-close { position:absolute; top:14px; right:18px; font-size:20px; color:var(--muted); background:none; border:none; cursor:pointer; }
   .mail-opt { display:flex; align-items:center; gap:14px; border:2px solid #e5e7eb; border-radius:14px; padding:16px; cursor:pointer; transition:all .2s; background:#fff; width:100%; margin-bottom:12px; font-family:'Noto Sans JP',sans-serif; }
-  .mail-opt:hover { border-color:var(--navy); background:#f0f4ff; }
+  .mail-opt:hover { border-color:var(--navy); background:#f0f9fa; }
   .mail-icon { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:20px; }
-  .mail-icon.blue { background:#dbeafe; }
+  .mail-icon.blue { background:#d3f0f2; }
   .mail-icon.red  { background:#fee2e2; }
   .mail-opt-title { font-size:14px; font-weight:700; color:var(--navy); text-align:left; }
   .mail-opt-sub   { font-size:11px; color:var(--muted); margin-top:2px; text-align:left; }
@@ -208,7 +208,7 @@
       LINEで送る（内容を自動コピー）
     </button>
     <button class="mail-btn" onclick="openMailModal()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#223670"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#0F6E7A"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       メールで送る
     </button>
   </div>
