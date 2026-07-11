@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ヒヤリングみっけ｜あなたの困りごとをお聞かせください</title>
+<title>相談みっけ｜あなたの困りごとをお聞かせください</title>
 <link rel="icon" type="image/png" href="https://spc-jp.github.io/hearing-mikke/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -121,7 +121,7 @@
 
 <header>
   <p class="hl">Smile Plus Consulting</p>
-  <h1 class="ht">ヒヤリング<span>みっけ</span></h1>
+  <h1 class="ht">相談<span>みっけ</span></h1>
   <p class="hs">あなたの困りごとをお聞かせください</p>
 </header>
 
@@ -200,7 +200,7 @@
 <div id="s5" class="card" style="display:none">
   <span class="sn">STEP 05</span>
   <h2 class="st">送信方法を選んでください</h2>
-  <p class="sd">ヒヤリング内容をSPCにお送りください。<br>内容をもとに最適なアプリをご提案いたします✨</p>
+  <p class="sd">相談内容をSPCにお送りください。<br>内容をもとに最適なアプリをご提案いたします✨</p>
 
   <div class="send-section">
     <button class="line-btn" onclick="openLine()">
@@ -219,7 +219,7 @@
 <div id="s6" class="card" style="display:none">
   <div class="done-wrap">
     <span class="done-icon">✅</span>
-    <h2 class="done-title">ヒヤリング内容を<br>受け取りました！</h2>
+    <h2 class="done-title">相談内容を<br>受け取りました！</h2>
     <p class="done-sub">お送りいただきありがとうございます。<br>内容をもとに最適なアプリをご提案いたします。</p>
     <div class="done-box">
       <p class="done-box-title">📋 送信した内容</p>
@@ -323,13 +323,13 @@ function buildMsg(){
   const pts=Array.from(probs).map(pid=>{
     const p=PROBS.find(x=>x.id===pid); return p?'・'+p.t:'';
   }).join('\n');
-  let m='【ヒヤリングみっけからのご相談】\n\n';
+  let m='【相談みっけからのお問い合わせ】\n\n';
   m+='お名前：'+name+'\n';
   if(co) m+='会社名：'+co+'\n';
   m+='業種：'+ind+'\n\n';
   m+='■ 困っていること\n'+pts+'\n\n';
   if(ft) m+='■ 一言メモ\n'+ft+'\n\n';
-  m+='ヒヤリング内容をもとに最適なアプリをご提案いただけますと幸いです。\nよろしくお願いいたします。';
+  m+='相談内容をもとに最適なアプリをご提案いただけますと幸いです。\nよろしくお願いいたします。';
   return m;
 }
 
@@ -356,7 +356,7 @@ function closeModal(e){
 }
 
 function sendMailClient(){
-  const s=encodeURIComponent('ヒヤリングみっけ お問い合わせ');
+  const s=encodeURIComponent('相談みっけ お問い合わせ');
   const b=encodeURIComponent(buildMsg());
   window.location.href='mailto:spc@smileplusctg.com?subject='+s+'&body='+b;
   document.getElementById('mailOverlay').classList.remove('open');
@@ -364,7 +364,7 @@ function sendMailClient(){
 }
 
 function sendGmail(){
-  const s=encodeURIComponent('ヒヤリングみっけ お問い合わせ');
+  const s=encodeURIComponent('相談みっけ お問い合わせ');
   const b=encodeURIComponent(buildMsg());
   window.open('https://mail.google.com/mail/?view=cm&to=spc@smileplusctg.com&su='+s+'&body='+b,'_blank');
   document.getElementById('mailOverlay').classList.remove('open');
