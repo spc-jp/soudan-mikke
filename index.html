@@ -84,8 +84,8 @@
   .bs:hover { border-color:var(--navy); color:var(--navy); }
 
   /* 送信画面 */
-  .send-section { margin-bottom:24px; }
-  .line-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:#06C755; color:#fff; border-radius:12px; padding:16px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; border:none; transition:all .2s; margin-bottom:12px; }
+  .send-section { margin-bottom:24px; display:flex; flex-direction:column; gap:12px; }
+  .line-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:#06C755; color:#fff; border-radius:12px; padding:16px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; border:none; transition:all .2s; }
   .line-btn:hover { background:#05a848; transform:translateY(-1px); }
   .mail-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; color:var(--navy); border:2px solid var(--navy); border-radius:12px; padding:15px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; transition:all .2s; }
   .mail-btn:hover { background:var(--tint); transform:translateY(-1px); }
@@ -198,13 +198,13 @@
   <p class="sd" id="s5d"></p>
 
   <div class="send-section">
-    <button class="line-btn" id="lineBtn">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.04 2 11c0 3.27 1.82 6.14 4.58 7.88-.18.66-.67 2.42-.77 2.79-.12.45.17.44.36.32.15-.1 2.37-1.56 3.33-2.19.47.07.96.1 1.5.1 5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
-      LINEで送る（内容を自動コピー）
-    </button>
     <button class="mail-btn" id="mailBtn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       メールで送る
+    </button>
+    <button class="line-btn" id="lineBtn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.04 2 11c0 3.27 1.82 6.14 4.58 7.88-.18.66-.67 2.42-.77 2.79-.12.45.17.44.36.32.15-.1 2.37-1.56 3.33-2.19.47.07.96.1 1.5.1 5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
+      LINEで送る（内容を自動コピー）
     </button>
   </div>
   <button class="bs" data-go="4">← お客様情報を変える</button>
