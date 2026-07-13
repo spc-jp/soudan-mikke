@@ -3,17 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>相談みっけ｜あなたの困りごとをお聞かせください</title>
-<link rel="icon" type="image/png" href="https://spc-jp.github.io/soudan-mikke/favicon.png">
+<title>みっけシリーズ テンプレート</title>
+<link id="favicon" rel="icon" type="image/png" href="">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#0F6E7A; --gold:#E39A2B; --bg:#F7F5F0; --white:#FFFFFF; --text:#1a1a2e; --muted:#6b7280; --shadow:0 4px 24px rgba(15,110,122,0.10); }
+  :root {
+    --navy:#0F6E7A; --gold:#E39A2B; --navy-dark:#0c5a64;
+    --bg:#F7F5F0; --white:#FFFFFF; --text:#1a1a2e; --muted:#6b7280;
+    --shadow:0 4px 24px rgba(15,110,122,0.10);
+    --circle1:rgba(227,154,43,0.15); --circle2:rgba(227,154,43,0.10);
+    --dot-shadow:rgba(15,110,122,0.2);
+    --tint:rgba(15,110,122,0.06);
+    --grad1:rgba(227,154,43,0.10); --grad2:rgba(227,154,43,0.20);
+    --icon-blue:rgba(15,110,122,0.12);
+    --btn-shadow:rgba(15,110,122,0.3);
+  }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
 
   header { background:var(--navy); padding:20px 24px; text-align:center; position:relative; overflow:hidden; }
-  header::before { content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%; background:rgba(227,154,43,0.15); }
-  header::after  { content:''; position:absolute; bottom:-30px; left:-30px; width:100px; height:100px; border-radius:50%; background:rgba(227,154,43,0.10); }
+  header::before { content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%; background:var(--circle1); }
+  header::after  { content:''; position:absolute; bottom:-30px; left:-30px; width:100px; height:100px; border-radius:50%; background:var(--circle2); }
   .hl { font-family:'Noto Serif JP',serif; color:var(--gold); font-size:11px; letter-spacing:3px; margin-bottom:6px; position:relative; z-index:1; }
   .ht { font-family:'Noto Serif JP',serif; color:#fff; font-size:26px; font-weight:700; letter-spacing:2px; position:relative; z-index:1; }
   .ht span { color:var(--gold); }
@@ -22,7 +32,7 @@
   .prog-wrap { background:#fff; padding:16px 24px 12px; border-bottom:1px solid #e5e7eb; }
   .prog-row { display:flex; justify-content:center; gap:6px; align-items:center; max-width:320px; margin:0 auto; }
   .dot { width:26px; height:26px; border-radius:50%; background:#e5e7eb; color:#9ca3af; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; transition:all .3s; }
-  .dot.on { background:var(--navy); color:#fff; box-shadow:0 0 0 3px rgba(15,110,122,0.2); }
+  .dot.on { background:var(--navy); color:#fff; box-shadow:0 0 0 3px var(--dot-shadow); }
   .dot.ok { background:var(--gold); color:#fff; }
   .ln { flex:1; max-width:30px; height:2px; background:#e5e7eb; transition:background .3s; }
   .ln.ok { background:var(--gold); }
@@ -35,20 +45,20 @@
 
   .sn { display:inline-block; background:var(--navy); color:var(--gold); font-size:10px; font-weight:700; letter-spacing:2px; padding:4px 12px; border-radius:20px; margin-bottom:12px; }
   .st { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:700; color:var(--navy); margin-bottom:6px; line-height:1.5; }
-  .sd { font-size:12px; color:var(--muted); margin-bottom:20px; line-height:1.7; }
+  .sd { font-size:13px; color:var(--muted); margin-bottom:20px; line-height:1.7; }
 
   .ig { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .ib { border:2px solid #e5e7eb; border-radius:12px; padding:14px 10px; background:#fff; cursor:pointer; transition:all .2s; text-align:center; font-family:'Noto Sans JP',sans-serif; }
   .ib .ic { font-size:24px; display:block; margin-bottom:6px; }
   .ib .il { font-size:13px; font-weight:700; color:var(--navy); }
   .ib .is { font-size:10px; color:var(--muted); margin-top:2px; }
-  .ib:hover { border-color:var(--navy); background:#f0f9fa; transform:translateY(-2px); }
-  .ib.sel { border-color:var(--gold); background:linear-gradient(135deg,#fff6e8,#ffefd6); }
+  .ib:hover { border-color:var(--navy); background:var(--tint); transform:translateY(-2px); }
+  .ib.sel { border-color:var(--gold); background:linear-gradient(135deg,var(--grad1),var(--grad2)); }
 
   .pl { display:flex; flex-direction:column; gap:10px; }
   .pi { display:flex; align-items:center; gap:12px; border:2px solid #e5e7eb; border-radius:12px; padding:14px 16px; cursor:pointer; transition:all .2s; background:#fff; }
-  .pi:hover { border-color:var(--navy); background:#f0f9fa; }
-  .pi.sel { border-color:var(--gold); background:linear-gradient(135deg,#fff6e8,#ffefd6); }
+  .pi:hover { border-color:var(--navy); background:var(--tint); }
+  .pi.sel { border-color:var(--gold); background:linear-gradient(135deg,var(--grad1),var(--grad2)); }
   .cb { width:22px; height:22px; border:2px solid #d1d5db; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; }
   .pi.sel .cb { background:var(--gold); border-color:var(--gold); color:#fff; }
   .pe { font-size:18px; flex-shrink:0; }
@@ -68,26 +78,25 @@
   input.ti::placeholder { color:#9ca3af; }
 
   .bp { width:100%; background:var(--navy); color:#fff; border:none; border-radius:12px; padding:16px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:all .2s; margin-top:20px; letter-spacing:1px; }
-  .bp:hover { background:#0c5a64; transform:translateY(-1px); box-shadow:0 6px 20px rgba(15,110,122,.3); }
+  .bp:hover { background:var(--navy-dark); transform:translateY(-1px); box-shadow:0 6px 20px var(--btn-shadow); }
   .bp:disabled { background:#9ca3af; cursor:not-allowed; transform:none; box-shadow:none; }
   .bs { width:100%; background:transparent; color:var(--muted); border:2px solid #e5e7eb; border-radius:12px; padding:14px; font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:all .2s; margin-top:10px; }
   .bs:hover { border-color:var(--navy); color:var(--navy); }
 
   /* 送信画面 */
   .send-section { margin-bottom:24px; }
-  .send-title { font-family:'Noto Serif JP',serif; font-size:15px; font-weight:700; color:var(--navy); margin-bottom:14px; }
   .line-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:#06C755; color:#fff; border-radius:12px; padding:16px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; border:none; transition:all .2s; margin-bottom:12px; }
   .line-btn:hover { background:#05a848; transform:translateY(-1px); }
   .mail-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; color:var(--navy); border:2px solid var(--navy); border-radius:12px; padding:15px; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; transition:all .2s; }
-  .mail-btn:hover { background:#f0f9fa; transform:translateY(-1px); }
+  .mail-btn:hover { background:var(--tint); transform:translateY(-1px); }
 
   /* 送信完了画面 */
   .done-wrap { text-align:center; padding:16px 0 24px; }
   .done-icon { font-size:56px; display:block; margin-bottom:16px; }
   .done-title { font-family:'Noto Serif JP',serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:12px; line-height:1.5; }
-  .done-box { background:linear-gradient(135deg,#fff6e8,#ffefd6); border:2px solid var(--gold); border-radius:14px; padding:20px; margin:20px 0; text-align:left; }
+  .done-box { background:linear-gradient(135deg,var(--grad1),var(--grad2)); border:2px solid var(--gold); border-radius:14px; padding:20px; margin:20px 0; text-align:left; }
   .done-box-title { font-family:'Noto Serif JP',serif; font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px; }
-  .done-box-text { font-size:13px; line-height:1.8; color:var(--text); }
+  .done-box-text { font-size:13px; line-height:1.8; color:var(--text); white-space:pre-wrap; }
   .done-sub { font-size:12px; color:var(--muted); line-height:1.8; margin-bottom:20px; }
   .retry { width:100%; background:transparent; color:var(--muted); border:2px solid #e5e7eb; border-radius:12px; padding:14px; font-family:'Noto Sans JP',sans-serif; font-size:13px; cursor:pointer; transition:all .2s; margin-top:8px; }
   .retry:hover { border-color:var(--navy); color:var(--navy); }
@@ -99,9 +108,9 @@
   .modal-title { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:700; color:var(--navy); text-align:center; margin-bottom:20px; }
   .modal-close { position:absolute; top:14px; right:18px; font-size:20px; color:var(--muted); background:none; border:none; cursor:pointer; }
   .mail-opt { display:flex; align-items:center; gap:14px; border:2px solid #e5e7eb; border-radius:14px; padding:16px; cursor:pointer; transition:all .2s; background:#fff; width:100%; margin-bottom:12px; font-family:'Noto Sans JP',sans-serif; }
-  .mail-opt:hover { border-color:var(--navy); background:#f0f9fa; }
+  .mail-opt:hover { border-color:var(--navy); background:var(--tint); }
   .mail-icon { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:20px; }
-  .mail-icon.blue { background:#d3f0f2; }
+  .mail-icon.blue { background:var(--icon-blue); }
   .mail-icon.red  { background:#fee2e2; }
   .mail-opt-title { font-size:14px; font-weight:700; color:var(--navy); text-align:left; }
   .mail-opt-sub   { font-size:11px; color:var(--muted); margin-top:2px; text-align:left; }
@@ -120,21 +129,14 @@
 <body>
 
 <header>
-  <p class="hl">Smile Plus Consulting</p>
-  <h1 class="ht">相談<span>みっけ</span></h1>
-  <p class="hs">あなたの困りごとをお聞かせください</p>
+  <p class="hl" id="brand"></p>
+  <h1 class="ht" id="htitle"></h1>
+  <p class="hs" id="subtitle"></p>
 </header>
 
 <div class="prog-wrap">
-  <div class="prog-row">
-    <div class="dot on" id="d1">1</div><div class="ln" id="l1"></div>
-    <div class="dot" id="d2">2</div><div class="ln" id="l2"></div>
-    <div class="dot" id="d3">3</div><div class="ln" id="l3"></div>
-    <div class="dot" id="d4">4</div>
-  </div>
-  <div class="prog-labels">
-    <span>業種</span><span>困りごと</span><span>一言メモ</span><span>お客様情報</span>
-  </div>
+  <div class="prog-row" id="progRow"></div>
+  <div class="prog-labels" id="progLabels"></div>
 </div>
 
 <main>
@@ -142,24 +144,17 @@
 <!-- STEP1 業種 -->
 <div id="s1" class="card">
   <span class="sn">STEP 01</span>
-  <h2 class="st">どの業種ですか？</h2>
-  <p class="sd">一番近いものをタップしてください。</p>
-  <div class="ig">
-    <button class="ib" data-ind="税理士"><span class="ic">📊</span><span class="il">税理士</span><span class="is">会計・税務・相続</span></button>
-    <button class="ib" data-ind="士業"><span class="ic">⚖️</span><span class="il">士業</span><span class="is">弁護士・社労士・診断士</span></button>
-    <button class="ib" data-ind="製造業"><span class="ic">🏭</span><span class="il">製造業</span><span class="is">工場・職人・加工</span></button>
-    <button class="ib" data-ind="建設業"><span class="ic">🏗️</span><span class="il">建設業</span><span class="is">建築・土木・工事</span></button>
-    <button class="ib" data-ind="不動産"><span class="ic">🏠</span><span class="il">不動産</span><span class="is">売買・賃貸・管理</span></button>
-    <button class="ib" data-ind="その他"><span class="ic">💼</span><span class="il">その他</span><span class="is">上記以外の業種</span></button>
-  </div>
+  <h2 class="st" id="s1t"></h2>
+  <p class="sd" id="s1d"></p>
+  <div class="ig" id="ig"></div>
   <button class="bp" id="b1" data-go="2" disabled>次へ　→</button>
 </div>
 
 <!-- STEP2 困りごと -->
 <div id="s2" class="card" style="display:none">
   <span class="sn">STEP 02</span>
-  <h2 class="st">困っていることを<br>教えてください</h2>
-  <p class="sd">当てはまるものをすべてタップ（複数OK）</p>
+  <h2 class="st" id="s2t"></h2>
+  <p class="sd" id="s2d"></p>
   <div class="sc" id="sc">0件 選択中</div>
   <div class="pl" id="pl"></div>
   <button class="bp" id="b2" data-go="3" disabled>次へ　→</button>
@@ -169,9 +164,9 @@
 <!-- STEP3 一言メモ -->
 <div id="s3" class="card" style="display:none">
   <span class="sn">STEP 03</span>
-  <h2 class="st">一番困っていることを<br>一言で教えてください</h2>
-  <p class="sd">入力しなくてもOKです。書いてもらうとより的確なご提案ができます✨</p>
-  <textarea id="ft" placeholder="例）お客様からの同じ質問に毎回答えている。引き継ぎができていない。新人の定着率が悪い…" maxlength="200"></textarea>
+  <h2 class="st" id="s3t"></h2>
+  <p class="sd" id="s3d"></p>
+  <textarea id="ft" maxlength="200"></textarea>
   <p style="text-align:right;font-size:11px;color:#9ca3af;margin-top:6px" id="cc">0 / 200文字</p>
   <button class="bp" data-go="4">次へ　→</button>
   <button class="bs" data-go="2">← 困りごとを変える</button>
@@ -180,16 +175,16 @@
 <!-- STEP4 お客様情報 -->
 <div id="s4" class="card" style="display:none">
   <span class="sn">STEP 04</span>
-  <h2 class="st">最後に教えてください</h2>
-  <p class="sd">ご相談をスムーズに進めるために、お名前と会社名を教えていただけると助かります😊</p>
+  <h2 class="st" id="s4t"></h2>
+  <p class="sd" id="s4d"></p>
   <div class="ig2">
     <div class="iw">
-      <label>お名前<span class="req">必須</span></label>
-      <input type="text" class="ti" id="un" placeholder="例）田中 太郎" maxlength="30">
+      <label><span id="nameLabel"></span><span class="req">必須</span></label>
+      <input type="text" class="ti" id="un" maxlength="30">
     </div>
     <div class="iw">
-      <label>会社名・屋号<span class="opt">任意</span></label>
-      <input type="text" class="ti" id="cn" placeholder="例）田中製作所" maxlength="50">
+      <label><span id="companyLabel"></span><span class="opt">任意</span></label>
+      <input type="text" class="ti" id="cn" maxlength="50">
     </div>
   </div>
   <button class="bp" id="b4" data-go="5" disabled>内容を確認して送る　→</button>
@@ -199,8 +194,8 @@
 <!-- STEP5 送信画面 -->
 <div id="s5" class="card" style="display:none">
   <span class="sn">STEP 05</span>
-  <h2 class="st">送信方法を選んでください</h2>
-  <p class="sd">相談内容をSPCにお送りください。<br>内容をもとに最適なアプリをご提案いたします✨</p>
+  <h2 class="st" id="s5t"></h2>
+  <p class="sd" id="s5d"></p>
 
   <div class="send-section">
     <button class="line-btn" id="lineBtn">
@@ -208,7 +203,7 @@
       LINEで送る（内容を自動コピー）
     </button>
     <button class="mail-btn" id="mailBtn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#0F6E7A"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       メールで送る
     </button>
   </div>
@@ -219,13 +214,13 @@
 <div id="s6" class="card" style="display:none">
   <div class="done-wrap">
     <span class="done-icon">✅</span>
-    <h2 class="done-title">相談内容を<br>受け取りました！</h2>
-    <p class="done-sub">お送りいただきありがとうございます。<br>内容をもとに最適なアプリをご提案いたします。</p>
+    <h2 class="done-title" id="doneTitle"></h2>
+    <p class="done-sub" id="doneSub1"></p>
     <div class="done-box">
       <p class="done-box-title">📋 送信した内容</p>
       <p class="done-box-text" id="doneMsg"></p>
     </div>
-    <p class="done-sub">2〜3営業日以内にSPCよりご連絡差し上げます。<br>しばらくお待ちください😊</p>
+    <p class="done-sub" id="doneSub2"></p>
     <button class="retry" id="retryBtn">もう一度入力する</button>
   </div>
 </div>
@@ -246,7 +241,7 @@
       <div><p class="mail-opt-title">Gmailで送る</p><p class="mail-opt-sub">ブラウザでGmailをお使いの方</p></div>
     </button>
     <p class="modal-hint">うまくいかない場合は...</p>
-    <p class="copy-hint">以下の本文をコピーして、使い慣れたメール等の本文に貼り付けて<br><span>spc@smileplusctg.com</span> までお送りください。</p>
+    <p class="copy-hint">以下の本文をコピーして、使い慣れたメール等の本文に貼り付けて<br><span id="copyMailTo"></span> までお送りください。</p>
     <textarea class="copy-area" id="mailBody" readonly></textarea>
     <button class="btn-copy" id="copyBtn">本文をコピーする</button>
   </div>
@@ -254,22 +249,176 @@
 
 <footer>
   <p>Powered by <span>Smile Plus Consulting</span></p>
-  <p style="margin-top:4px">「考えるを、ひとりにしない」</p>
+  <p style="margin-top:4px" id="tagline"></p>
 </footer>
 
 <script>
-const PROBS = [
-  {id:'p1',e:'🔁',t:'毎日同じ質問・説明に追われている'},
-  {id:'p2',e:'📋',t:'紙やExcelの管理が限界になってきた'},
-  {id:'p3',e:'📞',t:'お問い合わせ対応に時間がかかっている'},
-  {id:'p4',e:'📝',t:'見積もりや提案書の作成が大変'},
-  {id:'p5',e:'👥',t:'スタッフの採用・教育がうまくいかない'},
-  {id:'p6',e:'📣',t:'集客・新規顧客の獲得が難しい'},
-  {id:'p7',e:'📁',t:'引き継ぎやマニュアルが整備できていない'},
-  {id:'p8',e:'🏛️',t:'相続・法律・手続きの相談が多い'},
-  {id:'p9',e:'💰',t:'経営数字や財務状況が把握しにくい'},
-  {id:'p10',e:'🌐',t:'Web・SNSの発信が続かない'},
-];
+/* ═══════════════════════════════════════════════════════════
+   ★★★ ここだけ編集すれば別アプリになります（CONFIG）★★★
+   新しい「◯◯みっけ」を作るときは、この中身を書き換えるだけ。
+   HTML本体・CSS・その下のロジックは触らなくてOKです。
+   ═══════════════════════════════════════════════════════════ */
+const CONFIG = {
+
+  /* ── 基本情報 ── */
+  brand:       "Smile Plus Consulting",
+  titleMain:   "相談",          // タイトルの黒文字部分
+  titleAccent: "みっけ",        // タイトルの色付き部分
+  subtitle:    "あなたの困りごとをお聞かせください",
+  favicon:     "https://spc-jp.github.io/soudan-mikke/favicon.png",
+
+  /* ── テーマカラー（この2色を変えるだけで全体が変わります）── */
+  colorMain:   "#0F6E7A",       // 濃い方（ヘッダー・ボタン・見出し）
+  colorAccent: "#E39A2B",       // アクセント（みっけ・選択時）
+
+  /* ── 送信先 ── */
+  contactEmail: "spc@smileplusctg.com",
+  lineUrl:      "https://lin.ee/oAgksID",
+  mailSubject:  "相談みっけ お問い合わせ",
+
+  /* ── 進捗ラベル（4つ）── */
+  progressLabels: ["業種", "困りごと", "一言メモ", "お客様情報"],
+
+  /* ── STEP1 業種 ── */
+  step1Title: "どの業種ですか？",
+  step1Desc:  "一番近いものをタップしてください。",
+  industries: [
+    { ic:"📊", il:"税理士",   is:"会計・税務・相続",       v:"税理士" },
+    { ic:"⚖️", il:"士業",     is:"弁護士・社労士・診断士", v:"士業" },
+    { ic:"🏭", il:"製造業",   is:"工場・職人・加工",       v:"製造業" },
+    { ic:"🏗️", il:"建設業",   is:"建築・土木・工事",       v:"建設業" },
+    { ic:"🏠", il:"不動産",   is:"売買・賃貸・管理",       v:"不動産" },
+    { ic:"💼", il:"その他",   is:"上記以外の業種",         v:"その他" },
+  ],
+
+  /* ── STEP2 困りごと（複数選択）── */
+  step2Title: "困っていることを<br>教えてください",
+  step2Desc:  "当てはまるものをすべてタップ（複数OK）",
+  problems: [
+    { e:"🔁", t:"毎日同じ質問・説明に追われている" },
+    { e:"📋", t:"紙やExcelの管理が限界になってきた" },
+    { e:"📞", t:"お問い合わせ対応に時間がかかっている" },
+    { e:"📝", t:"見積もりや提案書の作成が大変" },
+    { e:"👥", t:"スタッフの採用・教育がうまくいかない" },
+    { e:"📣", t:"集客・新規顧客の獲得が難しい" },
+    { e:"📁", t:"引き継ぎやマニュアルが整備できていない" },
+    { e:"🏛️", t:"相続・法律・手続きの相談が多い" },
+    { e:"💰", t:"経営数字や財務状況が把握しにくい" },
+    { e:"🌐", t:"Web・SNSの発信が続かない" },
+  ],
+
+  /* ── STEP3 一言メモ ── */
+  step3Title:       "一番困っていることを<br>一言で教えてください",
+  step3Desc:        "入力しなくてもOKです。書いてもらうとより的確なご提案ができます✨",
+  step3Placeholder: "例）お客様からの同じ質問に毎回答えている。引き継ぎができていない。新人の定着率が悪い…",
+
+  /* ── STEP4 お客様情報 ── */
+  step4Title:        "最後に教えてください",
+  step4Desc:         "ご相談をスムーズに進めるために、お名前と会社名を教えていただけると助かります😊",
+  nameLabel:         "お名前",
+  namePlaceholder:   "例）田中 太郎",
+  companyLabel:      "会社名・屋号",
+  companyPlaceholder:"例）田中製作所",
+
+  /* ── STEP5 送信画面 ── */
+  step5Title: "送信方法を選んでください",
+  step5Desc:  "相談内容をSPCにお送りください。<br>内容をもとに最適なアプリをご提案いたします✨",
+
+  /* ── 完了画面 ── */
+  doneTitle: "相談内容を<br>受け取りました！",
+  doneSub1:  "お送りいただきありがとうございます。<br>内容をもとに最適なアプリをご提案いたします。",
+  doneSub2:  "2〜3営業日以内にSPCよりご連絡差し上げます。<br>しばらくお待ちください😊",
+
+  /* ── 送信メッセージ本文の見出し ── */
+  messageHeader:   "【相談みっけからのお問い合わせ】",
+  problemsHeading: "■ 困っていること",
+  memoHeading:     "■ 一言メモ",
+  closing:         "相談内容をもとに最適なアプリをご提案いただけますと幸いです。\nよろしくお願いいたします。",
+
+  /* ── フッター ── */
+  footerTagline: "「考えるを、ひとりにしない」",
+};
+/* ═══════════ CONFIG ここまで（下は触らなくてOK）═══════════ */
+
+
+/* ---- 色ユーティリティ（2色から派生色を自動生成）---- */
+function hexToRgb(h){h=h.replace('#','');return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function rgba(h,a){const c=hexToRgb(h);return 'rgba('+c[0]+','+c[1]+','+c[2]+','+a+')';}
+function darken(h,amt){const c=hexToRgb(h).map(x=>Math.max(0,Math.round(x*(1-amt))));return '#'+c.map(x=>x.toString(16).padStart(2,'0')).join('');}
+
+function applyTheme(){
+  const r=document.documentElement.style;
+  r.setProperty('--navy',      CONFIG.colorMain);
+  r.setProperty('--gold',      CONFIG.colorAccent);
+  r.setProperty('--navy-dark', darken(CONFIG.colorMain,0.15));
+  r.setProperty('--shadow',    '0 4px 24px '+rgba(CONFIG.colorMain,0.10));
+  r.setProperty('--circle1',   rgba(CONFIG.colorAccent,0.15));
+  r.setProperty('--circle2',   rgba(CONFIG.colorAccent,0.10));
+  r.setProperty('--dot-shadow',rgba(CONFIG.colorMain,0.2));
+  r.setProperty('--tint',      rgba(CONFIG.colorMain,0.06));
+  r.setProperty('--grad1',     rgba(CONFIG.colorAccent,0.10));
+  r.setProperty('--grad2',     rgba(CONFIG.colorAccent,0.20));
+  r.setProperty('--icon-blue', rgba(CONFIG.colorMain,0.12));
+  r.setProperty('--btn-shadow',rgba(CONFIG.colorMain,0.3));
+}
+
+/* ---- 画面テキストをCONFIGから流し込む ---- */
+function applyTexts(){
+  document.title = CONFIG.titleMain + CONFIG.titleAccent;
+  document.getElementById('favicon').href = CONFIG.favicon;
+  document.getElementById('brand').textContent = CONFIG.brand;
+  document.getElementById('htitle').innerHTML = CONFIG.titleMain+'<span>'+CONFIG.titleAccent+'</span>';
+  document.getElementById('subtitle').textContent = CONFIG.subtitle;
+
+  document.getElementById('s1t').innerHTML = CONFIG.step1Title;
+  document.getElementById('s1d').innerHTML = CONFIG.step1Desc;
+  document.getElementById('s2t').innerHTML = CONFIG.step2Title;
+  document.getElementById('s2d').innerHTML = CONFIG.step2Desc;
+  document.getElementById('s3t').innerHTML = CONFIG.step3Title;
+  document.getElementById('s3d').innerHTML = CONFIG.step3Desc;
+  document.getElementById('ft').placeholder = CONFIG.step3Placeholder;
+  document.getElementById('s4t').innerHTML = CONFIG.step4Title;
+  document.getElementById('s4d').innerHTML = CONFIG.step4Desc;
+  document.getElementById('nameLabel').textContent = CONFIG.nameLabel;
+  document.getElementById('un').placeholder = CONFIG.namePlaceholder;
+  document.getElementById('companyLabel').textContent = CONFIG.companyLabel;
+  document.getElementById('cn').placeholder = CONFIG.companyPlaceholder;
+  document.getElementById('s5t').innerHTML = CONFIG.step5Title;
+  document.getElementById('s5d').innerHTML = CONFIG.step5Desc;
+  document.getElementById('doneTitle').innerHTML = CONFIG.doneTitle;
+  document.getElementById('doneSub1').innerHTML = CONFIG.doneSub1;
+  document.getElementById('doneSub2').innerHTML = CONFIG.doneSub2;
+  document.getElementById('copyMailTo').textContent = CONFIG.contactEmail;
+  document.getElementById('tagline').textContent = CONFIG.footerTagline;
+}
+
+/* ---- 進捗バーをCONFIGから生成 ---- */
+function buildProgress(){
+  const row=document.getElementById('progRow'); row.innerHTML='';
+  for(let i=1;i<=4;i++){
+    const d=document.createElement('div');
+    d.className='dot'+(i===1?' on':''); d.id='d'+i; d.textContent=i;
+    row.appendChild(d);
+    if(i<4){ const l=document.createElement('div'); l.className='ln'; l.id='l'+i; row.appendChild(l); }
+  }
+  const lab=document.getElementById('progLabels'); lab.innerHTML='';
+  CONFIG.progressLabels.forEach(t=>{ const s=document.createElement('span'); s.textContent=t; lab.appendChild(s); });
+}
+
+/* ---- 業種ボタンをCONFIGから生成 ---- */
+function buildIndustries(){
+  const ig=document.getElementById('ig'); ig.innerHTML='';
+  CONFIG.industries.forEach(item=>{
+    const b=document.createElement('button');
+    b.className='ib';
+    b.innerHTML='<span class="ic">'+item.ic+'</span><span class="il">'+item.il+'</span><span class="is">'+item.is+'</span>';
+    b.addEventListener('click',()=>selInd(b,item.v));
+    ig.appendChild(b);
+  });
+}
+
+/* ---- 困りごとリスト ---- */
+const PROBS = CONFIG.problems.map((p,i)=>({ id:'p'+(i+1), e:p.e, t:p.t }));
 
 let ind='', probs=new Set();
 
@@ -301,7 +450,7 @@ function renderProbs(){
   PROBS.forEach(p=>{
     const d=document.createElement('div');
     d.className='pi'+(probs.has(p.id)?' sel':'');
-    d.innerHTML=`<span class="pe">${p.e}</span><div class="cb">${probs.has(p.id)?'✓':''}</div><span class="pt">${p.t}</span>`;
+    d.innerHTML='<span class="pe">'+p.e+'</span><div class="cb">'+(probs.has(p.id)?'✓':'')+'</div><span class="pt">'+p.t+'</span>';
     d.onclick=()=>{
       if(probs.has(p.id)){probs.delete(p.id);d.classList.remove('sel');d.querySelector('.cb').textContent='';}
       else{probs.add(p.id);d.classList.add('sel');d.querySelector('.cb').textContent='✓';}
@@ -323,22 +472,22 @@ function buildMsg(){
   const pts=Array.from(probs).map(pid=>{
     const p=PROBS.find(x=>x.id===pid); return p?'・'+p.t:'';
   }).join('\n');
-  let m='【相談みっけからのお問い合わせ】\n\n';
+  let m=CONFIG.messageHeader+'\n\n';
   m+='お名前：'+name+'\n';
   if(co) m+='会社名：'+co+'\n';
   m+='業種：'+ind+'\n\n';
-  m+='■ 困っていること\n'+pts+'\n\n';
-  if(ft) m+='■ 一言メモ\n'+ft+'\n\n';
-  m+='相談内容をもとに最適なアプリをご提案いただけますと幸いです。\nよろしくお願いいたします。';
+  m+=CONFIG.problemsHeading+'\n'+pts+'\n\n';
+  if(ft) m+=CONFIG.memoHeading+'\n'+ft+'\n\n';
+  m+=CONFIG.closing;
   return m;
 }
 
 function openLine(){
   const msg=buildMsg();
   navigator.clipboard.writeText(msg).then(()=>{
-    setTimeout(()=>window.open('https://lin.ee/oAgksID','_blank'),400);
+    setTimeout(()=>window.open(CONFIG.lineUrl,'_blank'),400);
   }).catch(()=>{
-    window.open('https://lin.ee/oAgksID','_blank');
+    window.open(CONFIG.lineUrl,'_blank');
   });
   showDone();
 }
@@ -356,17 +505,17 @@ function closeModal(e){
 }
 
 function sendMailClient(){
-  const s=encodeURIComponent('相談みっけ お問い合わせ');
+  const s=encodeURIComponent(CONFIG.mailSubject);
   const b=encodeURIComponent(buildMsg());
-  window.location.href='mailto:spc@smileplusctg.com?subject='+s+'&body='+b;
+  window.location.href='mailto:'+CONFIG.contactEmail+'?subject='+s+'&body='+b;
   document.getElementById('mailOverlay').classList.remove('open');
   showDone();
 }
 
 function sendGmail(){
-  const s=encodeURIComponent('相談みっけ お問い合わせ');
+  const s=encodeURIComponent(CONFIG.mailSubject);
   const b=encodeURIComponent(buildMsg());
-  window.open('https://mail.google.com/mail/?view=cm&to=spc@smileplusctg.com&su='+s+'&body='+b,'_blank');
+  window.open('https://mail.google.com/mail/?view=cm&to='+encodeURIComponent(CONFIG.contactEmail)+'&su='+s+'&body='+b,'_blank');
   document.getElementById('mailOverlay').classList.remove('open');
   showDone();
 }
@@ -381,8 +530,7 @@ function copyBody(){
 }
 
 function showDone(){
-  const msg=buildMsg();
-  document.getElementById('doneMsg').textContent=msg;
+  document.getElementById('doneMsg').textContent=buildMsg();
   showStep(6); updProg(6);
 }
 
@@ -417,10 +565,12 @@ function restart(){
   showStep(1); updProg(1);
 }
 
-/* ===== イベント登録（onclickを使わずここでまとめて設定）===== */
-document.querySelectorAll('.ib').forEach(btn=>{
-  btn.addEventListener('click',()=>selInd(btn,btn.dataset.ind));
-});
+/* ---- 起動：CONFIGを反映し、イベントを登録 ---- */
+applyTheme();
+applyTexts();
+buildProgress();
+buildIndustries();
+
 document.querySelectorAll('[data-go]').forEach(btn=>{
   btn.addEventListener('click',()=>go(parseInt(btn.dataset.go,10)));
 });
